@@ -6,9 +6,11 @@ local DEFAULT_FOV_FP = SIM.firstPersonCameraFOV
 local DEFAULT_FOV_TP = SIM.cameraFOV
 
 -- Default Settings
+local DEFAULT_EMABLED_FP = true
 local DEFAULT_MIN_FOV_FP = DEFAULT_FOV_FP
 local DEFAULT_MAX_FOV_FP = DEFAULT_FOV_FP + 20
 local DEFAULT_MAX_SPEED_FP = 250
+local DEFAULT_ENABLED_TP = true
 local DEFAULT_MIN_FOV_TP = DEFAULT_FOV_TP
 local DEFAULT_MAX_FOV_TP = DEFAULT_FOV_TP + 40
 local DEFAULT_MAX_SPEED_TP = 250
@@ -20,11 +22,11 @@ local DEFAULT_G_FORCE_FACTOR_MULTIPLIER = 0.01
 -- Game Settings Storage (updated on each change)
 -- Init with default settings
 local AC_SETTINGS = ac.storage{
-    enabledFp = true,
+    enabledFp = DEFAULT_EMABLED_FP,
     minFovFp = DEFAULT_MIN_FOV_FP,
     maxFovFp = DEFAULT_MAX_FOV_FP,
     maxSpeedFp = DEFAULT_MAX_SPEED_FP,
-    enabledTp = true,
+    enabledTp = DEFAULT_ENABLED_TP,
     minFovTp = DEFAULT_MIN_FOV_TP,
     maxFovTp = DEFAULT_MAX_FOV_TP,
     maxSpeedTp = DEFAULT_MAX_SPEED_TP,
@@ -128,7 +130,7 @@ function script.windowMain(dt)
     -- ENABLED FIRST PERSON FLAG
     if ui.checkbox('Enabled First Person', ENABLED_FP) then
         ENABLED_FP = not ENABLED_FP
-        AC_SETTINGS.enabled_fp = ENABLED_FP
+        AC_SETTINGS.enabledFp = ENABLED_FP
         if not ENABLED_FP then
             ac.setFirstPersonCameraFOV(DEFAULT_FOV_FP)
             ac.setCameraFOV(DEFAULT_FOV_TP)
@@ -160,7 +162,7 @@ function script.windowMain(dt)
     -- ENABLED THIRD PERSON FLAG
     if ui.checkbox('Enabled Third Person', ENABLED_TP) then
         ENABLED_TP = not ENABLED_TP
-        AC_SETTINGS.enabled_tp = ENABLED_TP
+        AC_SETTINGS.enabledTp = ENABLED_TP
         if not ENABLED_TP then
             ac.setFirstPersonCameraFOV(DEFAULT_FOV_FP)
             ac.setCameraFOV(DEFAULT_FOV_TP)
@@ -220,11 +222,11 @@ function script.windowMain(dt)
 
 
     if ui.button("Reset") then
-        AC_SETTINGS.enabledFp = true
+        AC_SETTINGS.enabledFp = DEFAULT_EMABLED_FP
         AC_SETTINGS.minFovFp = DEFAULT_MIN_FOV_FP
         AC_SETTINGS.maxFovFp = DEFAULT_MAX_FOV_FP
         AC_SETTINGS.maxSpeedFp = DEFAULT_MAX_SPEED_FP
-        AC_SETTINGS.enabledTp = true
+        AC_SETTINGS.enabledTp = DEFAULT_ENABLED_TP
         AC_SETTINGS.minFovTp = DEFAULT_MIN_FOV_TP
         AC_SETTINGS.maxFovTp = DEFAULT_MAX_FOV_TP
         AC_SETTINGS.maxSpeedTp = DEFAULT_MAX_SPEED_TP
@@ -233,11 +235,11 @@ function script.windowMain(dt)
         AC_SETTINGS.speedCurveExponent = DEFAULT_SPEED_CURVE_EXPONENT
         AC_SETTINGS.gForceFactorMultiplier = DEFAULT_G_FORCE_FACTOR_MULTIPLIER
 
-        ENABLED_FP = true
+        ENABLED_FP = DEFAULT_EMABLED_FP
         MIN_FOV_FP = DEFAULT_MIN_FOV_FP
         MAX_FOV_FP = DEFAULT_MAX_FOV_FP
         MAX_SPEED_FP = DEFAULT_MAX_SPEED_FP
-        ENABLED_TP = true
+        ENABLED_TP = DEFAULT_ENABLED_TP
         MIN_FOV_TP = DEFAULT_MIN_FOV_TP
         MAX_FOV_TP = DEFAULT_MAX_FOV_TP
         MAX_SPEED_TP = DEFAULT_MAX_SPEED_TP
