@@ -140,19 +140,19 @@ function script.windowMain(dt)
     -- FIRST PERSON SETTINGS
     if ENABLED_FP then
         -- MINIMUM FOV
-        local updatedMinFovFp = ui.slider('Minimum First Person FOV', MIN_FOV_FP, 20, 70, "%.0f")
+        local updatedMinFovFp = ui.slider('FP: Minimum FOV', MIN_FOV_FP, 20, 70, "%.0f")
         if ui.itemEdited() then
             MIN_FOV_FP = updatedMinFovFp
             AC_SETTINGS.minFovFp = MIN_FOV_FP
         end
         -- MAXIMUM FOV
-        local updatedMaxFovFp = ui.slider('Maximum First Person FOV', MAX_FOV_FP, 30, 120, "%.0f")
+        local updatedMaxFovFp = ui.slider('FP: Maximum FOV', MAX_FOV_FP, 30, 120, "%.0f")
         if ui.itemEdited() then
             MAX_FOV_FP = updatedMaxFovFp
             AC_SETTINGS.maxFovFp = MAX_FOV_FP
         end
         -- MAXIMUM SPEED
-        local updatedMaxSpeedFp = ui.slider('Maximum First Person Speed', MAX_SPEED_FP, 100, 300, "%.0f")
+        local updatedMaxSpeedFp = ui.slider('FP: Maximum Speed KPH', MAX_SPEED_FP, 100, 300, "%.0f")
         if ui.itemEdited() then
             MAX_SPEED_FP = updatedMaxSpeedFp
             AC_SETTINGS.maxSpeedFp = MAX_SPEED_FP
@@ -172,19 +172,19 @@ function script.windowMain(dt)
     -- THIRD PERSON SETTINGS
     if ENABLED_TP then
         -- MINIMUM FOV
-        local updatedMinFovTp = ui.slider('Minimum Third Person FOV', MIN_FOV_TP, 20, 70, "%.0f")
+        local updatedMinFovTp = ui.slider('TP: Minimum FOV', MIN_FOV_TP, 20, 70, "%.0f")
         if ui.itemEdited() then
             MIN_FOV_TP = updatedMinFovTp
             AC_SETTINGS.minFovTp = MIN_FOV_TP
         end
         -- MAXIMUM FOV
-        local updatedMaxFovTp = ui.slider('Maximum Third Person FOV', MAX_FOV_TP, 30, 120, "%.0f")
+        local updatedMaxFovTp = ui.slider('TP: Maximum FOV', MAX_FOV_TP, 30, 120, "%.0f")
         if ui.itemEdited() then
             MAX_FOV_TP = updatedMaxFovTp
             AC_SETTINGS.maxFovTp = MAX_FOV_TP
         end
         -- MAXIMUM SPEED
-        local updatedMaxSpeedTp = ui.slider('Maximum Third Person Speed', MAX_SPEED_TP, 100, 300, "%.0f")
+        local updatedMaxSpeedTp = ui.slider('TP: Maximum Speed KPH', MAX_SPEED_TP, 100, 300, "%.0f")
         if ui.itemEdited() then
             MAX_SPEED_TP = updatedMaxSpeedTp
             AC_SETTINGS.maxSpeedTp = MAX_SPEED_TP
